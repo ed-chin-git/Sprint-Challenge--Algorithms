@@ -52,19 +52,33 @@ Solution 3: Run two loops, Start from the TOP story counting DOWN until you reac
                   BAD: Will waste eggs if _f_ is in the MIDDLE floor
 
 Solution 4: Mimic a binary search( with recursion) 
+
              1. Set floor-range_top = top_floor
+
              1. Set floor-range_bottom = bottom_floor
-             2. Drop the egg from midpoint(top_floor - bottom_floor // 2) of floor_range
+
+             2. Calculate midpoint( floor-range_top -  floor-range_bottom // 2) of floor_range & Drop the egg from there
+
                 If egg breaks
+
                     # disregard top half
+
                     set floor_range_top = midpoint
+
                     set floor_range_bottom = bottom_floor
+
                     repeat 2  until egg doesn't break then return midpoint + 1
+
                 else if egg doesn't break
+
                     # disregard bottom half of _n_ 
+
                     set floor_range_top = top_floor
+
                     set floor_range_bottom = midpoint
-                    repeat 2  until egg breaks   return that _floor
+
+                    repeat 2  until egg breaks   return midpoint
+                    
 
 
 Time Complexity:  O(logn)  As in a binary search, the list keeps getting cut in half
